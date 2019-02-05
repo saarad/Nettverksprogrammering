@@ -10,6 +10,7 @@ public class Oving1 {
         String username = scanner.nextLine();
         System.out.println("Your username is " + username);
     }
+
 }
 
 /*
