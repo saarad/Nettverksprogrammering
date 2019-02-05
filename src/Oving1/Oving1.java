@@ -45,7 +45,6 @@ public class Oving1 {
         }
 
         return newArray;
-
     }
 
     static String primeFinder(int start, int end){
@@ -115,8 +114,6 @@ public class Oving1 {
      */
 
 }
-
-
 
 
 
