@@ -1,6 +1,6 @@
 package Oving1;
 
-import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -19,6 +19,21 @@ public class Oving1 {
         int intervalEnd = Integer.parseInt(scanner.nextLine());
         delegatePrimesOnThreads(threads,intervalStart,intervalEnd);
     }//end main
+
+    static int[] joinTwoArrays(int[] one, int[] two){
+
+        int[] newArray = new int[one.length + two.length];
+        for(int i = 0; i<newArray.length; i++){
+            if(i<one.length){
+                newArray[i] = one[i];
+            } else {
+                newArray[i] = two[i - one.length];
+            }
+        }
+
+        for(int number : newArray){
+            System.out.println(number + ",");
+        }
 
     private static void delegatePrimesOnThreads(int threads, int intervalStart, int interValEnd){
         int intervalSize = (interValEnd-intervalStart)+1;
@@ -55,5 +70,4 @@ public class Oving1 {
  1 funksjon som tar imot to tall (interval) og et gitt antall tråder (done)
  1 funksjon for å dele opp intervallet likt fordelt basert på antall tråder(done)
  1 funksjon for å lage et gitt antall threads
- 1 funksjon som tar imot et intervall, og finner alle primtallene i intervallet
  */
