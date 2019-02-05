@@ -18,34 +18,30 @@ public class Oving1 {
         int startInterval = Integer.parseInt(scanner.nextLine());
         System.out.println("Enter endInterval");
         int endInterval = Integer.parseInt(scanner.nextLine());
-        allPrimes = new int[1 + endInterval - startInterval];
         System.out.println("n threads : " + amountOfThreads + "\nstart : " + startInterval + "\nend :" + endInterval);
+
+       int[] result = getAllPrimesFromIntervalWithThreads(amountOfThreads, startInterval, endInterval);
+       for(int i : result){
+           System.out.println(i);
+       }
+
+    }//end main
+
+    static int[] getAllPrimesFromIntervalWithThreads(int amountOfThreads, int startInterval, int endInterval) {
+        allPrimes = new int[1 + endInterval - startInterval];
 
         try {
             delegatePrimesOnThreads(amountOfThreads, startInterval, endInterval);
-
         } catch (Exception e) {
             System.out.println("erorR: " + e);
         } finally {
 
             int[] onlyPrimes = shortenArray(allPrimes);
             Arrays.sort(onlyPrimes);
-            onlyPrimes = shortenArray(onlyPrimes);
-            for (int i : onlyPrimes) {
-                System.out.println(i);
-            }
-
-
-            System.out.println(duplicates(onlyPrimes));
-
-            int[] tall = {1, 3, 4, 5, 6, 8, 9, 7, 0};
-            System.out.println(duplicates(tall));
-
-
+            return shortenArray(onlyPrimes);
         }
 
-
-    }//end main
+    }
 
     static boolean duplicates(final int[] primeNumbers) {
         Set<Integer> lump = new HashSet<Integer>();
@@ -59,6 +55,16 @@ public class Oving1 {
     }
 
     static int[] shortenArray(int[] longArray) {
+
+        for (int longNumber : longArray) {
+            // System.out.println("longArrayNumber: " + longNumber);
+        }
+        try {
+            Thread.sleep(500);
+        } catch (Exception e) {
+            System.out.println("err in shorten: " + e);
+        }
+
         int length = 0;
         Arrays.sort(longArray);
         int arrayStart = 0;
@@ -116,6 +122,7 @@ public class Oving1 {
             delegateIntervalOnThread(intervalStart, interValEnd);
         } else if (threads > 1) {
             for (int i = start; i < end; i++) {
+
                 if (end >= interValEnd && intervalSize != primesOnThread) {
                     end = interValEnd;
                     delegateIntervalOnThread(start, end);
@@ -140,7 +147,6 @@ public class Oving1 {
     }//end method
 
     static void primeFinder(int start, int end) {
-
 
         Runnable runnable = () -> {
             findAllPrimesInInterval(start, end);
