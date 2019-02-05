@@ -36,10 +36,9 @@ public class Oving1 {
             }
 
 
-
             System.out.println(duplicates(onlyPrimes));
 
-            int[] tall = {1,3,4,5,6,8,9,7,0};
+            int[] tall = {1, 3, 4, 5, 6, 8, 9, 7, 0};
             System.out.println(duplicates(tall));
 
 
@@ -54,7 +53,7 @@ public class Oving1 {
             if ((i != 0) && lump.contains(i)) {
                 return true;
             }
-                lump.add(i);
+            lump.add(i);
         }
         return false;
     }
@@ -155,8 +154,6 @@ public class Oving1 {
 
         for (int i = start; i <= end; i++) {
             if (isNumberPrime(i)) {
-                // System.out.println("PRIME FOUND ["+start+","+end+"]: " + i);
-
 
                 try {
                     mutex.acquire();
@@ -191,31 +188,6 @@ public class Oving1 {
         return true;
     }
 
-
-    /*
-        int[] one = {0,1,2,3,4,5,6};
-        int[] two = {7,8,9,10,11,12};
-        joinTwoArrays(one, two);
-        System.out.println("Enter amount of threads");
-        Scanner scanner = new Scanner(System.in);
-        int amountOfThreads = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter startInterval");
-        int startInterval = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter endInterval");
-        int endInterval = Integer.parseInt(scanner.nextLine());
-        System.out.println("n threads : " + amountOfThreads + "\nstart : " + startInterval + "\nend :" + endInterval );
-        Oving1 o = new Oving1();
-        for(int i = 0; i<amountOfThreads; i++){
-            findAllPrimesInInterval(startInterval, endInterval);
-        }
-     */
-
 }//end class
 
 
-/*
- 1 funksjon for å sortere
- 1 funksjon som tar imot to tall (interval) og et gitt antall tråder (done)
- 1 funksjon for å dele opp intervallet likt fordelt basert på antall tråder(done)
- 1 funksjon for å lage et gitt antall threads
- */
