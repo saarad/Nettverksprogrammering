@@ -57,7 +57,6 @@ public class Oving1_test {
         }
 
         assertEquals(false, different);
-
         //Another test cases
     }
 
