@@ -4,9 +4,25 @@ import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
+
+/***
+ *
+ * Skriv på formen
+ *
+ *      8 pluss 9
+ *
+ * eller
+ *
+ *      8pluss9
+ *
+ */
+
 class SocketKlient {
     public static void main(String[] args) throws IOException {
         final int PORTNR = 1250;
+
+
+
 
         /* Bruker en scanner til å lese fra kommandovinduet */
         Scanner leserFraKommandovindu = new Scanner(System.in);
@@ -20,7 +36,6 @@ class SocketKlient {
                 InputStreamReader leseforbindelse = new InputStreamReader(forbindelse.getInputStream());
                 BufferedReader leseren = new BufferedReader(leseforbindelse);
                 PrintWriter skriveren = new PrintWriter(forbindelse.getOutputStream(), true);
-
         ){
             System.out.println("Nå er forbindelsen opprettet.");
             /* Leser innledning fra tjeneren og skriver den til kommandovinduet */
